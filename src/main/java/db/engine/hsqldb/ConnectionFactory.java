@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import db.engine.DbProperties;
 import db.engine.DbProperty;
+import db.engine.Engine;
 
 /**
  * Connection Factory from HSQLDB (HyperSQL Database)
@@ -25,10 +27,11 @@ public class ConnectionFactory {
 	 * @throws IOException 
 	 */
 	public Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
-		Class.forName(HSQLDBProperties.getPropery(DbProperty.CLASS));
+		DbProperties.setEngine(Engine.DERBY);
+		Class.forName(DbProperties.getPropery(DbProperty.CLASS));
 		return DriverManager.getConnection(
-				HSQLDBProperties.getPropery(DbProperty.CONNECTION_STRING), 
-				HSQLDBProperties.getPropery(DbProperty.USER), 
-				HSQLDBProperties.getPropery(DbProperty.PASSWORD));
+				DbProperties.getPropery(DbProperty.CONNECTION_STRING), 
+				DbProperties.getPropery(DbProperty.USER), 
+				DbProperties.getPropery(DbProperty.PASSWORD));
 	}
 }

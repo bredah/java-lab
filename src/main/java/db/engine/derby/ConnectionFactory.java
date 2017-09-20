@@ -5,7 +5,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import db.engine.DbProperties;
 import db.engine.DbProperty;
+import db.engine.Engine;
 
 /**
  * Connection Factory from Java DB (Derby)
@@ -14,9 +16,8 @@ import db.engine.DbProperty;
  * @version 1.00
  * @since 2017-09-13
  */
-public class ConnectionFactory
-{
-	
+public class ConnectionFactory {
+
 	/**
 	 * Generation connection from DB
 	 * 
@@ -26,7 +27,8 @@ public class ConnectionFactory
 	 * @throws IOException
 	 */
 	public Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
-		Class.forName(DerbyProperties.getPropery(DbProperty.CLASS));
-		return DriverManager.getConnection(DerbyProperties.getPropery(DbProperty.CONNECTION_STRING));
+		DbProperties.setEngine(Engine.DERBY);
+		Class.forName(DbProperties.getPropery(DbProperty.CLASS));
+		return DriverManager.getConnection(DbProperties.getPropery(DbProperty.CONNECTION_STRING));
 	}
 }
