@@ -54,12 +54,7 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return new ToStringBuilder(this)
-				.append("ID", this.id)
-				.append("Name", this.name)
-				.append("E-mail", this.email)
-				.append("Cellphone", this.cellphone)
-				.toString();
+		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", cellphone=" + cellphone + "]";
 	}
 
 	@Override

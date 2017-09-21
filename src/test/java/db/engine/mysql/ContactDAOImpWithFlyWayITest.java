@@ -33,9 +33,9 @@ public class ContactDAOImpWithFlyWayITest
 				resultCreate);
 	}
 	
-	@Test(expected = SQLException.class)
+	@Test(expected=SQLException.class)
 	public void createException() throws SQLException, ClassNotFoundException, IOException {
-		// Generate connection with error
+		// Generate connection with error 
 		Connection connection = new ConnectionFactory().getConnection();
 		connection.close();
 		// Generate exception

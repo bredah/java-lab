@@ -4,10 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import org.junit.Before;
-import org.junit.Test;
 
 import db.dao.ContactDAO;
 import db.dao.ContactDAOImp;
@@ -30,19 +28,19 @@ public class ContactDaoITest {
 //		connection.close();
 //	}
 
-	/**
-	 * Create and Delete a table
-	 * 
-	 * @throws SQLException
-	 */
-	@Test
-	public void tableCreateAndDrop() throws SQLException {
-		// Logger.getGlobal().setLevel(Level.INFO);
-		// Execute query
-		Statement stmt = connection.createStatement();
-		dao.createTable();
-		stmt.executeUpdate("DROP TABLE  IF NOT EXISTS addressbook");
-	}
+//	/**
+//	 * Create and Delete a table
+//	 * 
+//	 * @throws SQLException
+//	 */
+//	@Test
+//	public void tableCreateAndDrop() throws SQLException {
+//		// Logger.getGlobal().setLevel(Level.INFO);
+//		// Execute query
+//		Statement stmt = connection.createStatement();
+//		dao.createTable();
+//		stmt.executeUpdate("DROP TABLE  IF NOT EXISTS addressbook");
+//	}
 
 	/**
 	 * Create a new register
