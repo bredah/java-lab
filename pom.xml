@@ -84,11 +84,17 @@
 			<artifactId>json-path</artifactId>
 			<version>2.4.0</version>
 		</dependency>
-		<!-- -->
+		<!-- FlyWay - Migrate and Restore Database -->
 		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>23.0</version>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<!-- Helps reduce cyclomatic complexity -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
 		</dependency>
 		<!-- TEST -->
 		<!-- Library for unit tests -->

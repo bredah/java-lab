@@ -13,8 +13,4 @@ public interface ContactDAO {
 	public boolean update(Contact contact) throws SQLException;
 
 	public boolean delete(Contact contact) throws SQLException;
-	
-	public void createTable() throws SQLException;
-	
-	void closeConnection() throws SQLException;
 }

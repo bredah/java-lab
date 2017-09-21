@@ -17,9 +17,9 @@ import org.junit.Test;
 
 import core.Helper;
 import db.dao.ContactDAOImp;
+import db.engine.DbProperties;
 import db.engine.DbProperty;
 import db.engine.derby.ConnectionFactory;
-import db.engine.derby.DerbyProperties;
 import db.entity.Contact;
 
 public class DbUnitITest
@@ -30,7 +30,7 @@ public class DbUnitITest
 	@BeforeClass
 	public static void setUpClass() throws ClassNotFoundException, IOException, SQLException, DatabaseUnitException {
 		// Load driver class
-		Class.forName(DerbyProperties.getPropery(DbProperty.CLASS));
+		Class.forName(DbProperties.getPropery(DbProperty.CLASS));
 		// Get the connection from factory
 		jdbcConnection = new ConnectionFactory().getConnection();
 		// FIRST: Create table

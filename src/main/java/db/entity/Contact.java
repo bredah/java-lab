@@ -1,5 +1,9 @@
 package db.entity;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 public class Contact {
 	private int id;
 	private String name;
@@ -50,46 +54,34 @@ public class Contact {
 
 	@Override
 	public String toString() {
-		return "Contact [id=" + id + ", name=" + name + ", email=" + email + ", cellphone=" + cellphone + "]";
+		return new ToStringBuilder(this)
+				.append("ID", this.id)
+				.append("Name", this.name)
+				.append("E-mail", this.email)
+				.append("Cellphone", this.cellphone)
+				.toString();
 	}
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((cellphone == null) ? 0 : cellphone.hashCode());
-		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+		return new HashCodeBuilder()
+				.append(this.id)
+				.append(this.name)
+				.append(this.email)
+				.append(this.cellphone)
+				.toHashCode();
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Contact other = (Contact) obj;
-		if (cellphone == null) {
-			if (other.cellphone != null)
-				return false;
-		} else if (!cellphone.equals(other.cellphone))
-			return false;
-		if (email == null) {
-			if (other.email != null)
-				return false;
-		} else if (!email.equals(other.email))
-			return false;
-		if (id != other.id)
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+		if (obj instanceof Contact == false) { return false; }
+		if (obj == this) { return true; }
+		final Contact other = (Contact) obj;
+		return new EqualsBuilder()
+				.append(this.id, other.id)
+				.append(this.name, other.name)
+				.append(this.email, other.email)
+				.append(this.cellphone, other.cellphone)
+				.isEquals();
 	}
 }
