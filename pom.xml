@@ -66,6 +66,12 @@
 			<version>1.4.196</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- DB - MySQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
 		<!-- JSON Serialization/Deserialization -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

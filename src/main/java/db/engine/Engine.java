@@ -7,4 +7,6 @@ public enum Engine {
 	H2,
 	/** HSQLDB database */
 	HSQLDB,
+	/** MySQL */
+	MYSQL,
 }

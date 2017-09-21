@@ -15,26 +15,34 @@ import db.engine.DbProperty;
  * @since 2017-09-18
  * @version 1.00
  */
-public class DbProperties
-{
+public class DbProperties {
 	private static Properties prop;
 	private static Engine engine;
-	
+
 	/**
 	 * Retrieving properties from a specific Database
 	 */
-	private DbProperties()
-	{
+	private DbProperties() {
 	}
-	
+
 	/**
 	 * Set Engine
+	 * 
 	 * @param engine
 	 */
 	public static void setEngine(Engine engine) {
 		DbProperties.engine = engine;
 	}
-	
+
+	/**
+	 * Retrieve DB Engine
+	 * 
+	 * @return Currently engine
+	 */
+	public static Engine getEngine() {
+		return DbProperties.engine;
+	}
+
 	/**
 	 * Retrieve a specific property from DB
 	 * 
@@ -46,21 +54,19 @@ public class DbProperties
 	 * @throws IOException
 	 */
 	public static String getPropery(DbProperty property) throws IOException {
-		switch (property)
-		{
-			case CLASS:
-			case CONNECTION_STRING:
-			case PASSWORD:
-			case USER:
-				if (prop == null) {
-					prop = new Properties();
-					prop.load(new FileInputStream(Helper.getMainResources() + "database.properties"));
-				}
-				return prop.getProperty(engine.toString().toLowerCase() + "." + property.toString().toLowerCase());
-			default:
-				throw new InvalidParameterException(
-						String.format("This property '%s' not existe", property.toString()));
+		switch (property) {
+		case CLASS:
+		case CONNECTION_STRING:
+		case PASSWORD:
+		case USER:
+			if (prop == null) {
+				prop = new Properties();
+				prop.load(new FileInputStream(Helper.getMainResources() + "database.properties"));
+			}
+			return prop.getProperty(engine.toString().toLowerCase() + "." + property.toString().toLowerCase());
+		default:
+			throw new InvalidParameterException(String.format("This property '%s' not existe", property.toString()));
 		}
 	}
-	
+
 }

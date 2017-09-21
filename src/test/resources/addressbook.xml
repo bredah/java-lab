@@ -1,3 +1,3 @@
 <dataset>
-	<ADDRESSBOOK NAME="ABC" EMAIL="abc@mail.com" CELLPHONE="+5511912340001" />
+	<ADDRESSBOOK ID="1" NAME="XPTO" EMAIL="xpto@mail.com" CELLPHONE="+5511912340001" />
 </dataset>
